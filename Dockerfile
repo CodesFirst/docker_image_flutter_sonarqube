@@ -1,4 +1,4 @@
-FROM ghcr.io/cirruslabs/flutter:3.10.6
+FROM ghcr.io/cirruslabs/flutter:3.13.1
 
 #User
 USER root
@@ -10,9 +10,9 @@ RUN apt update && apt install -y curl unzip
 RUN mkdir ${HOME}/sonar-scanner
 
 #Download Sonar-Scanner
-RUN wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.8.0.2856.zip
+RUN wget -O sonar-scanner-cli.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-2.9.0.670.zip
 RUN unzip sonar-scanner-cli.zip && rm sonar-scanner-cli.zip
-RUN mv sonar-scanner-4.8.0.2856 sonar-scanner
+RUN mv sonar-scanner-cli-2.9.0.670 sonar-scanner
 
 #Create system variables
 ENV FLUTTER_SONAR=${HOME}/sonar-scanner
